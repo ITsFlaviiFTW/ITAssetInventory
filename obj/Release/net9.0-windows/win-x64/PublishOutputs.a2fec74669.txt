@@ -1,0 +1,2 @@
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Release\net9.0-windows\win-x64\publish\ITAssetInventory.pdb
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Release\net9.0-windows\win-x64\publish\ITAssetInventory.exe

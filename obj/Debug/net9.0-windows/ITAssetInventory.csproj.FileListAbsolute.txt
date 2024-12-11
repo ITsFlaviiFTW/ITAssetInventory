@@ -1,0 +1,17 @@
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.csproj.AssemblyReference.cache
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.AssemblyInfoInputs.cache
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.AssemblyInfo.cs
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.csproj.CoreCompileInputs.cache
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Debug\net9.0-windows\ITAssetInventory.exe
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Debug\net9.0-windows\ITAssetInventory.deps.json
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Debug\net9.0-windows\ITAssetInventory.runtimeconfig.json
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Debug\net9.0-windows\ITAssetInventory.dll
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Debug\net9.0-windows\ITAssetInventory.pdb
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetI.83221367.Up2Date
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.dll
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\refint\ITAssetInventory.dll
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.pdb
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.genruntimeconfig.cache
+C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ref\ITAssetInventory.dll
