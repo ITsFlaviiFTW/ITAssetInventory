@@ -30,6 +30,10 @@ namespace ITAssetInventory.Forms
         // The repository handles loading and saving assets to the data file.
         private AssetRepository _repository;
 
+        private int _dragIndex = -1;
+        private int _dropIndex = -1;
+
+
         public InventoryForm()
         {
             InitializeComponent(); // Initialize UI components from the designer.
@@ -96,15 +100,22 @@ namespace ITAssetInventory.Forms
         {
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AllowUserToAddRows = false;
+            // TO DO: maybe make the width auto generated based on the character name with a buffer on each side? hmm
+
+            var snCol = new DataGridViewTextBoxColumn
+            {
+                HeaderText = "S/N",
+                Width = 50,
+                ReadOnly = false
+            };
+            dataGridView1.Columns.Add(snCol);
 
             // asset name, pretty self explanatory
-
-            // TO DO: maybe make the width auto generated based on the character name with a buffer on each side? hmm
             var nameCol = new DataGridViewTextBoxColumn
             {
                 HeaderText = "Asset Name",
                 DataPropertyName = "Name",
-                ReadOnly = true,
+                ReadOnly = false,
                 Width = 200
             };
 
@@ -113,7 +124,7 @@ namespace ITAssetInventory.Forms
             {
                 HeaderText = "Quantity",
                 DataPropertyName = "Quantity",
-                ReadOnly = true,
+                ReadOnly = false,
                 Width = 80
             };
 
@@ -131,8 +142,116 @@ namespace ITAssetInventory.Forms
 
             //using ToList() to make sure the DataGridView doesn't operate on the original list (the 3 mentioned)
             dataGridView1.DataSource = _assets.ToList();
+
+            dataGridView1.DataBindingComplete += (s, e) => AssignSerialNumbers();
+            dataGridView1.CellValidating += DataGridView1_CellValidating;
+            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+            
+            dataGridView1.AllowDrop = true;
+            dataGridView1.MouseDown += DataGridView1_MouseDown;
+            dataGridView1.MouseMove += DataGridView1_MouseMove;
+            dataGridView1.DragOver += DataGridView1_DragOver;
+            dataGridView1.DragDrop += DataGridView1_DragDrop;
+
             UpdateIndicators();
         }
+
+
+            private void DataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+            {
+                // Assuming columns: S/N=0, Name=1, Quantity=2, Status=3
+                if (e.ColumnIndex == 2) // Quantity column index
+                {
+                    if (!int.TryParse(e.FormattedValue.ToString(), out int _))
+                    {
+                        MessageBox.Show("Invalid quantity. Please enter a valid number.");
+                        e.Cancel = true;
+                    }
+                }
+            }
+
+            private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+            {
+                // Ensure we don't run this on header rows or invalid rows
+                if (e.RowIndex >= 0 && e.ColumnIndex > 0)
+                {
+                    var editedRow = dataGridView1.Rows[e.RowIndex];
+                    var asset = editedRow.DataBoundItem as ITAssetInventory.Models.Asset;
+                    if (asset != null)
+                    {
+                        // Update the corresponding asset in the _assets list
+                        string updatedName = editedRow.Cells[1].Value.ToString();
+                        int updatedQty = int.Parse(editedRow.Cells[2].Value.ToString());
+
+                        // Find the original asset by old name (assuming unique names)
+                        var originalAsset = _assets.FirstOrDefault(a => a.Name == asset.Name);
+                        if (originalAsset != null)
+                        {
+                            originalAsset.Name = updatedName;
+                            originalAsset.Quantity = updatedQty;
+                            UpdateIndicators();
+                            SaveData();
+                        }
+                    }
+                }
+            }
+
+
+            private void DataGridView1_MouseDown(object sender, MouseEventArgs e)
+            {
+                var hitTest = dataGridView1.HitTest(e.X, e.Y);
+                if (hitTest.RowIndex >= 0)
+                {
+                    _dragIndex = hitTest.RowIndex;
+                }
+            }
+
+            private void DataGridView1_MouseMove(object sender, MouseEventArgs e)
+            {
+                if ((e.Button & MouseButtons.Left) == MouseButtons.Left && _dragIndex >= 0)
+                {
+                    dataGridView1.DoDragDrop(dataGridView1.Rows[_dragIndex], DragDropEffects.Move);
+                }
+            }
+
+            private void DataGridView1_DragOver(object sender, DragEventArgs e)
+            {
+                e.Effect = DragDropEffects.Move;
+                Point clientPoint = dataGridView1.PointToClient(new Point(e.X, e.Y));
+                var hitTest = dataGridView1.HitTest(clientPoint.X, clientPoint.Y);
+                if (hitTest.RowIndex >= 0)
+                {
+                    _dropIndex = hitTest.RowIndex;
+                }
+            }
+
+            private void DataGridView1_DragDrop(object sender, DragEventArgs e)
+            {
+                if (_dragIndex >= 0 && _dropIndex >= 0 && _dropIndex != _dragIndex)
+                {
+                    var draggedAsset = _assets[_dragIndex];
+                    _assets.RemoveAt(_dragIndex);
+                    _assets.Insert(_dropIndex, draggedAsset);
+
+                    dataGridView1.DataSource = _assets.ToList();
+                    AssignSerialNumbers();
+                    SaveData();
+                }
+
+                _dragIndex = -1;
+                _dropIndex = -1;
+            }
+
+
+
+        private void AssignSerialNumbers()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = (i + 1).ToString();
+            }
+        }
+
 
         private void SetupTimer()
         {
@@ -154,7 +273,7 @@ namespace ITAssetInventory.Forms
             {
                 if (row.DataBoundItem is Asset asset)
                 {
-                    var cell = row.Cells[2] as DataGridViewImageCell;
+                    var cell = row.Cells[3] as DataGridViewImageCell; // Status column is now index 3
                     if (asset.Quantity <= 3)
                     {
                         cell.Value = _flashState ? _redIcon : null;

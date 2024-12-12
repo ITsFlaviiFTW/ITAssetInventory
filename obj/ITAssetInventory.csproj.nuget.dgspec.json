@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj": {}
+    "c:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj": {}
   },
   "projects": {
-    "C:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj": {
+    "c:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj",
+        "projectUniqueName": "c:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj",
         "projectName": "ITAssetInventory",
-        "projectPath": "C:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj",
+        "projectPath": "c:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\ITAssetInventory.csproj",
         "packagesPath": "C:\\Users\\flavius.porumbiel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\obj\\",
+        "outputPath": "c:\\Users\\flavius.porumbiel\\Documents\\code\\ITAssetInventory\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\flavius.porumbiel\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -44,12 +44,6 @@
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
           "dependencies": {
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.0, )",
-              "autoReferenced": true
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -70,20 +64,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[9.0.0, 9.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[9.0.0, 9.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[9.0.0, 9.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -93,11 +73,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }

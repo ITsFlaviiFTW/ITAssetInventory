@@ -15,3 +15,4 @@ C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-wind
 C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.pdb
 C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.genruntimeconfig.cache
 C:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ref\ITAssetInventory.dll
+c:\Users\flavius.porumbiel\Documents\code\ITAssetInventory\obj\Debug\net9.0-windows\ITAssetInventory.sourcelink.json

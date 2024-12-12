@@ -24,6 +24,10 @@
     "Quantity": 10
   },
   {
+    "Name": "Power Bars",
+    "Quantity": 5
+  },
+  {
     "Name": "Headsets",
     "Quantity": 10
   },
@@ -40,12 +44,12 @@
     "Quantity": 10
   },
   {
-    "Name": "iPhone 11 Screen Protectors",
-    "Quantity": 14
-  },
-  {
     "Name": "iPhone SE Screen Protectors",
     "Quantity": 10
+  },
+  {
+    "Name": "iPhone 11 Screen Protectors",
+    "Quantity": 14
   },
   {
     "Name": "iPhone Charging Cables to USB",
@@ -69,14 +73,6 @@
   },
   {
     "Name": "Ricoh Printer Ink: IMC6000",
-    "Quantity": 10
-  },
-  {
-    "Name": "testing",
-    "Quantity": 100
-  },
-  {
-    "Name": "Power Bars",
-    "Quantity": 10
+    "Quantity": 8
   }
 ]
